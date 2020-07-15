@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    proxy: {
+    proxy: {//代理配置
      '/hrm/api': {
         //target: 'http://192.168.1.209:10751/', // Dev环境
         //  target: 'http://192.168.1.238:10751/', // Test环境
@@ -13,6 +13,6 @@ module.exports = {
           '^/hrm/api/': '/'
         }
       }
-    }
-  }
+    },
+  },
 }
