@@ -27,9 +27,22 @@ export default {
   components: {
     HelloWorld
   },
+  mounted: function() {
+    this.tryGet()
+  },
   methods: {
     jumpPage(page){
       this.$router.push(page)
+    },
+    tryGet(){
+      this.axios({
+        method: 'get',
+        url: '/api/demo/table/user/',
+        params: {
+          page: '2',
+          limit:'10'
+        },
+     })
     },
   },
 }
