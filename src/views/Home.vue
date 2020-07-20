@@ -21,29 +21,51 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-
+import server from "@/api/api.js";
 export default {
   name: 'Home',
   components: {
     HelloWorld
   },
   mounted: function() {
-    this.tryGet()
+    this.tryGet2()
   },
   methods: {
     jumpPage(page){
       this.$router.push(page)
     },
-    tryGet(){
+    tryGet(){//无封装版
       this.axios({
-        method: 'get',
-        url: '/api/demo/table/user/',
-        params: {
-          page: '2',
-          limit:'10'
+        method: 'post',
+        // url: '/api/demo/table/user/',//layui的请求方式
+        url: '/api',
+        data: {
+          s: 'App.Common_GZ.QueryYouEYuang',
+          app_key:'0B0C54231820D9BE5114FC66103710C6',
+          sign:'0875A7D2EE40F052037F184E372DCA33'
         },
+     }).then((res) => {
+
      })
     },
+    tryGet2(){//封装版
+    //   this.$server.getInfo({//get版
+    //       s: 'App.Common_GZ.QueryYouEYuang',
+    //       app_key:'0B0C54231820D9BE5114FC66103710C6',
+    //       sign:'0875A7D2EE40F052037F184E372DCA33'
+    //   }).then((res) => {
+    //     console.log(res)
+    //  })
+
+
+      this.$server.postInfo({//post版
+            s: 'App.Common_GZ.QueryYouEYuang',
+            app_key:'0B0C54231820D9BE5114FC66103710C6',
+            sign:'0875A7D2EE40F052037F184E372DCA33'
+        }).then((res) => {
+          console.log(res)
+      })
+    }
   },
 }
 </script>
