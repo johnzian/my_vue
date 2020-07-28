@@ -22,13 +22,16 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import server from "@/api/api.js";
+import {playlistMixin} from "@/mixins/mixin1.js"
 export default {
   name: 'Home',
+  mixins:[playlistMixin],
   components: {
     HelloWorld
   },
   mounted: function() {
     this.tryGet2()
+    this.handlePlaylist([1,2,3])
   },
   methods: {
     jumpPage(page){
