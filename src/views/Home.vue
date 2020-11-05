@@ -14,6 +14,8 @@
       </div>
     <div>
       这是首页，可以是登录页，也可以是商城的首页
+      <h3>{{mymy}}</h3>
+      <input type="text" @change="changeStore()" v-model="myLocalValue">
     </div>
   </div>
 </template>
@@ -23,17 +25,38 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import server from "@/api/api.js";
 import {playlistMixin} from "@/mixins/mixin1.js"
+import store from '@/store'
 export default {
   name: 'Home',
   mixins:[playlistMixin],
   components: {
     HelloWorld
   },
+  computed:{
+        
+    mymy(){
+        return this.$store.state.mymy;
+    }
+        
+  },
+  data(){
+    return {
+      myLocalValue: 0
+    }
+  },
   mounted: function() {
     this.tryGet2()
     this.handlePlaylist([1,2,3])
   },
   methods: {
+    changeStore(){
+      this.$store.dispatch('changeMymyAction', {
+        myValue:this.myLocalValue,
+				callback: (res) => {
+					console.log(1)
+				},
+			})
+    },
     jumpPage(page){
       this.$router.push(page)
     },
