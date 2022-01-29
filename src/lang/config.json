@@ -1,0 +1,19 @@
+{ "fileName": {
+    "英文": "en",
+    "阿语": "ar"
+  },
+  "regex": {
+    "br": {
+      "key": "{{br}}",
+      "result": "{br}"
+    },
+    "content": {
+      "key": "{{content}}",
+      "result": "{content}"
+    },
+    "coin": {
+      "key": "{{coin}}",
+      "result": "{coin}"
+    }
+  }
+}
