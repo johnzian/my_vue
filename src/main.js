@@ -8,7 +8,7 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: state.lang,
+  locale: store.state.lang,
   messages: {
     en: require('./lang/en'),
     ar: require('./lang/ar')

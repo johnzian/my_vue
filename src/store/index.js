@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
         mymy: 0,
-        canPost: true // 能否提交
+        canPost: true, // 能否提交
+        lang:'en'
     },
     mutations: {
         changeMymy(state, data) {
